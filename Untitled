@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="jp">
+  <head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0; /* 念のためpaddingも0にしておくと安心です */
+      }
+    </style>
+  </head>
+  <body>
+    <img src="public/0122修正後/FV.png" alt="" width="100%">
+    <img src="public/0113修正後/商品紹介_pages2@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/アートボード 3@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/不の原因_page4@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/不の原因２_pages5@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/解決策_pages6@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/ロジック_pages7@2x.png" alt="" width="100%">
+    <img src="public/0113修正後/オファー_pages8@2x.png" alt="" width="100%">
+    <img src="public/0122修正後/オファー_1.png" alt="" width="100%">
+    <img src="public/0122修正後/オファー＆クロージング.png" alt="" width="100%">
+
+
+    
+
+
+
+
+
+
+
+
+  </body>
+</html>
