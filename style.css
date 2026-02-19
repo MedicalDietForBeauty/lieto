@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* 1. PC閲覧時の背景設定 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa; /* 指定の明るいグレー */
+  display: flex;
+  justify-content: center;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+/* 2. モバイル表示を強制するメイン枠（500px幅） */
+.mobile-frame {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: none; /* フレーム外側の影を削除 */
+}
+
+/* 3. 画像とボタンの同期コンテナ */
+.image-container {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4. 通常時のボタンデザイン */
+.styled-button {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  font-size: 18px; 
+  padding: 14px 0;
+  border-radius: 50px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+  color: #5c3d2e; /* 文字色：茶色 */
+  font-weight: bold;
+  border: 2px solid #5c3d2e; /* 茶色のストローク */
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+}
+
+/* 5. 選択保持状態（JSで制御） */
+.styled-button.is-selected {
+  background: #5c3d2e; /* 背景を茶色に反転 */
+  color: #ffffff;      /* 文字を白に反転 */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); 
+  transform: translate(-50%, -48%);
+}
+
+/* 6. 画像リンクの設定 */
+.cta-link {
+  position: absolute;
+  left: 50%;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+.cta-link img {
+  width: 100%;
+  display: block;
+  border: none;
+}
+
+/* 7. クリック時のフィードバック */
+.styled-button:active {
+  background: #e6e6e6;
+}
+
+/* スマホ表示時のサイズ補正 */
+@media (max-width: 500px) {
+  .styled-button {
+    font-size: 4vw;
+    padding: 3.5% 0;
+  }
+}
