@@ -13,20 +13,20 @@
     <div class="image-container">
       <img src="public/0218本番実装/0218FV.png" alt="メイン画像" fetchpriority="high" loading="eager">
       
-      <button class="styled-button" data-group="1" style="top: 31%;">モニター価格が破格</button>
-      <button class="styled-button" data-group="1" style="top: 32.3%;">徹底したメニューのカスタム</button>
-      <button class="styled-button" data-group="1" style="top: 33.6%;">予約が取りやすい</button>
-      <button class="styled-button" data-group="1" style="top: 34.9%;">先端機器が豊富でレベルが高い</button>
+      <button class="styled-button" data-group="1" style="top: 31%;">なかなか痩せられない</button>
+      <button class="styled-button" data-group="1" style="top: 32.3%;">ジム・サプリ代が高い</button>
+      <button class="styled-button" data-group="1" style="top: 33.6%;">すぐリバウンドする</button>
+      <button class="styled-button" data-group="1" style="top: 34.9%;">痩せても色気がない</button>
 
-      <button class="styled-button" data-group="2" style="top: 43%;">ランニング</button>
-      <button class="styled-button" data-group="2" style="top: 44.3%;">食事制限</button>
-      <button class="styled-button" data-group="2" style="top: 45.6%;">筋トレ</button>
-      <button class="styled-button" data-group="2" style="top: 46.9%;">リバウンド</button>
+      <button class="styled-button" data-group="2" style="top: 43%;">積極的にアプローチしたい</button>
+      <button class="styled-button" data-group="2" style="top: 44.3%;">好きな服を着てお出かけ</button>
+      <button class="styled-button" data-group="2" style="top: 45.6%;">SNSで自慢</button>
+      <button class="styled-button" data-group="2" style="top: 46.9%;">毎日チートデイ</button>
 
-      <button class="styled-button" data-group="3" style="top: 55%;">1ヶ月</button>
-      <button class="styled-button" data-group="3" style="top: 56.3%;">3ヶ月</button>
-      <button class="styled-button" data-group="3" style="top: 57.6%;">半年</button>
-      <button class="styled-button" data-group="3" style="top: 58.9%;">1年</button>
+      <button class="styled-button" data-group="3" style="top: 55%;">モニター価格が破格</button>
+      <button class="styled-button" data-group="3" style="top: 56.3%;">徹底したメニューのカスタム</button>
+      <button class="styled-button" data-group="3" style="top: 57.6%;">予約が取りやすい</button>
+      <button class="styled-button" data-group="3" style="top: 58.9%;">先端機器が豊富でレベルが高い</button>
 
       <a href="https://chokudori.com/click/-4UZRJRW" class="cta-link" style="top: 73%;">
         <img src="public/0218本番実装/CTA.png" alt="CTA" loading="lazy">
@@ -39,6 +39,7 @@
 
     <div class="image-container">
       <img src="public/0218本番実装/0218page3.png" alt="" loading="lazy">
+      <div class="time-display current-time-val" style="top: 59.8%;"></div>
       <a href="https://chokudori.com/click/-4UZRJRW" class="cta-link" style="top: 78%;">
         <img src="public/0218本番実装/CTA.png" alt="CTA" loading="lazy">
       </a>
@@ -52,11 +53,12 @@
     <img src="public/0122修正後/オファー_1.png" alt="" width="100%" loading="lazy">
 
     <div class="image-container">
-      <img src="public/0218本番実装/0218オファー＆クロージング.png" alt="" loading="lazy">
+      <img src="public/0218本番実装/0218オファー＆クロージング_1.png" alt="" loading="lazy">
+      <div class="time-display current-time-val" style="top: 66.1%;"></div>
       <a href="https://chokudori.com/click/-4UZRJRW" class="cta-link" style="top: 11%;">
         <img src="public/0218本番実装/CTA.png" alt="CTA" loading="lazy">
       </a>
-      <a href="https://chokudori.com/click/-4UZRJRW" class="cta-link" style="top: 85%;">
+      <a href="https://chokudori.com/click/-4UZRJRW" class="cta-link" style="top: 84.8%;">
         <img src="public/0218本番実装/CTA.png" alt="CTA" loading="lazy">
       </a>
     </div>
@@ -64,20 +66,35 @@
   </div>
 
   <script>
-    // 全ボタンの取得
     const buttons = document.querySelectorAll('.styled-button');
-
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const groupId = button.getAttribute('data-group');
         const groupButtons = document.querySelectorAll(`.styled-button[data-group="${groupId}"]`);
-        
-        // 同じグループ内のみ選択を解除
         groupButtons.forEach(btn => btn.classList.remove('is-selected'));
-        // クリックされたボタンのみ選択
         button.classList.add('is-selected');
       });
     });
+
+    // 複数要素をクラス指定で一括取得
+    const timeElements = document.querySelectorAll('.current-time-val');
+
+    function updateTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const ms = String(now.getMilliseconds()).padStart(3, '0').slice(0, 2);
+      
+      const timeString = `現在時刻 ${hours}:${minutes}:${seconds}.${ms}`;
+      
+      // NodeList内の全要素を更新
+      timeElements.forEach(el => {
+        el.textContent = timeString;
+      });
+    }
+
+    setInterval(updateTime, 10);
   </script>
 </body>
 </html>
